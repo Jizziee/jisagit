@@ -4,7 +4,10 @@ class Transaction:
         self.amount = float(amount)
         self.category = category.lower().strip()
         self.description = description
-        self.type = ttype  # just type 'income' or 'expense'
+        self.type = ttype  # "income" or "expense"
+
+    def __str__(self):
+        return f"{self.date} | {self.type.title()} | {self.category} | {self.amount} | {self.description}"
 
 
 class Income(Transaction):
