@@ -45,5 +45,63 @@ class Budget:
 
         return total_income, total_expense, balance
 
+#DAY 4 CODE
+from transaction import Income, Expense
+
+
+class BudgetTracker:
+    def __init__(self):
+        self.transactions = []
+
+    def add_income(self):
+        print("\n--- Add Income ---")
+
+        date = input("Enter date (YYYY-MM-DD): ")
+        amount = input("Enter amount: ")
+        category = input("Enter category: ")
+        description = input("Enter description: ")
+
+        # Validation
+        try:
+            amount = float(amount)
+        except ValueError:
+            print("❌ Invalid amount! Must be a number.")
+            return
+
+        if category.strip() == "":
+            print("❌ Category cannot be empty.")
+            return
+
+        # Create object
+        income = Income(date, amount, category, description)
+        self.transactions.append(income)
+
+        print("✔ Income added successfully!")
+
+    def add_expense(self):
+        print("\n--- Add Expense ---")
+
+        date = input("Enter date (YYYY-MM-DD): ")
+        amount = input("Enter amount: ")
+        category = input("Enter category: ")
+        description = input("Enter description: ")
+
+        # Validation
+        try:
+            amount = float(amount)
+        except ValueError:
+            print("Invalid amount! Must be a number.")
+            return
+
+        if category.strip() == "":
+            print("Category cannot be empty.")
+            return
+
+        # Create object
+        expense = Expense(date, amount, category, description)
+        self.transactions.append(expense)
+
+        print("✔ Expense added successfully!")
+
 
 

@@ -1,26 +1,28 @@
-from transaction import Income, Expense
-from budget_tracker import Budget
 
-def main():
-    budget = Budget()
+# Day 4
+from budget_tracker import BudgetTracker
 
-    # add test transactions
-    t1 = Income("2025-03-01", 2000, "Salary", "March salary")
-    t2 = Expense("2025-03-02", 150, "Food", "Groceries")
+bt = BudgetTracker()
 
-    budget.add_transaction(t1)
-    budget.add_transaction(t2)
+while True:
+    print("\n--- Budget Tracker ---")
+    print("1. Add Income")
+    print("2. Add Expense")
+    print("3. View Summary")
+    print("4. Exit")
 
-    print("All Transactions:")
-    for t in budget.list_transactions():
-        print(t)
+    choice = input("Enter choice: ")
 
-    print("\nSummary:")
-    income, expense, balance = budget.get_summary()
-    print("Total Income:", income)
-    print("Total Expense:", expense)
-    print("Balance:", balance)
-
-if __name__ == "__main__":
-    main()
+    if choice == "1":
+        bt.add_income()
+    elif choice == "2":
+        bt.add_expense()
+    elif choice == "3":
+        for t in bt.transactions:
+            print(t)
+    elif choice == "4":
+        print("Goodbye!")
+        break
+    else:
+        print("Invalid option!")
 
