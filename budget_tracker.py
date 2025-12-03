@@ -1,4 +1,6 @@
 from transaction import Income, Expense
+from datetime import datetime
+
 
 class BudgetTracker:
 
@@ -9,7 +11,11 @@ class BudgetTracker:
     def add_income(self):
         print("\n--- Add Income ---")
 
-        date = input("Enter date (YYYY-MM-DD): ").strip()
+        date = input("Enter date (YYYY-MM-DD) or press Enter for today's date: ").strip()
+
+        # If the user pressed Enter → fill with today's date
+        if date == "":
+            date = datetime.today().strftime("%Y-%m-%d")
 
         # Loop until user enters a valid positive amount
         while True:
@@ -42,7 +48,9 @@ class BudgetTracker:
     def add_expense(self):
         print("\n--- Add Expense ---")
 
-        date = input("Enter date (YYYY-MM-DD): ").strip()
+        date = input("Enter date (YYYY-MM-DD) or press Enter for today's date: ").strip()
+        if date == "":
+            date = datetime.today().strftime("%Y-%m-%d")
 
         # Loop until user enters a valid positive amount
         while True:
