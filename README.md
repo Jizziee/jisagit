@@ -158,4 +158,5 @@ Example of deleting a transaction:
                  └── repository_link.txt
 
 
-7. Project Status : All core features have been implemented successfully, and the project is fully functional in the terminal.
+## 7. Project Status 
+All core features have been implemented successfully, and the project is fully functional in the terminal.
